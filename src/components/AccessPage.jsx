@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { useParams } from 'react-router';
+import { Link, useParams} from 'react-router';
 import LockIcon from '@mui/icons-material/Lock';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -46,7 +45,7 @@ const AccessPage = () => {
                 {/* CTA Button */}
                 <div className='w-full px-4 pt-4'> 
                     <Link to="welcome"
-                        className='truncate uppercase w-full cursor-pointer flex items-center justify-center rounded-lg h-14 bg-primary text-white text-sm font-bold tracking-[0.2em] transition-all hover:bg-primary/90 active:scale-95 shadow-lg shadow-primary/20'
+                        className='block w-full bg-primary hover:primary/90 text-white font-medium py-4 rounded transition-color uppercase tracking-[0.2em] text-xs shadow-lg shadow-primary/10 truncate uppercase w-full cursor-pointer flex items-center justify-center rounded h-14 bg-primary text-white text-sm font-bold tracking-[0.2em] transition-all hover:bg-primary/90 active:scale-95 shadow-lg shadow-primary/20'
                         >
                         Validate Invite
                     </Link>
@@ -65,8 +64,8 @@ const AccessPage = () => {
             </div>
         </div>
         <div className="fixed inset-0 pointer-events-none z-[-1]">
-        <   div classN="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,rgba(212,17,50,0.03)_0%,transparent_70%)]"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background-dark"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,rgba(212,17,50,0.03)_0%,transparent_70%)]"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background-dark"></div>
         </div>
     </div>
   )
