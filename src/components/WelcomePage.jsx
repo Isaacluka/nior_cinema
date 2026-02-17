@@ -3,6 +3,10 @@ import { Link, useParams } from 'react-router'
 import LockIcon from '@mui/icons-material/LockOutline';
 import ShareIcon from '@mui/icons-material/Share';
 import { PlayArrow } from '@mui/icons-material';
+import { Add } from '@mui/icons-material';
+import MovieFilter from '@mui/icons-material/MovieFilter';
+import { Info } from '@mui/icons-material';
+
 import MoviePoster from '../assets/MoviePoster.png'
 
 const WelcomePage = () => {
@@ -40,8 +44,8 @@ const WelcomePage = () => {
             
                 {/* Movie Title */}
                 <div className="px-6 text-center mb-2">
-                    <h1 className='text-white tracking-tight text-5xl md:text-6xl font-bold leadong-tight drop-shadow-2xl'>
-                        ONOBIREN
+                    <h1 className='text-white tracking-tight text-5xl md:text-6xl font-bold italic leadIng-tight drop-shadow-2xl'>
+                        THE VELVET SILENCE
                     </h1>
                 </div>
                 {/* Movie Metadata */}
@@ -57,20 +61,42 @@ const WelcomePage = () => {
                 
                 {/* CTA */}
                 <div className="flex flex-col items-center px-6 gap-6">
-                    <div className='flex min-w-[240px] w-full max-w-[320px] cursor-pointer items-center justify-center overflow-hidden rounded h-14 px-8 bg-primary text-white gap-3 shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-[0.98]'>
-                        <Link 
-                        className='block text-base font-bold tracking-widest  uppercase'
-                        to="/cinema">
-                            <span className="material-symbols-outlined fill-1"><PlayArrow /></span>
-                            <span>
-                                Watch Film
-                            </span>
-                        </Link>
+                    <Link 
+                    className='block text-base font-bold tracking-widest w-full uppercase tracking-[0.2em] text-sm flex min-w-[240px] w-full max-w-[320px] cursor-pointer items-center justify-center overflow-hidden rounded h-14 px-8 bg-primary text-white gap-3 shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-[0.98]'
+                    to="/cinema">
+                        <span className="material-symbols-outlined fill-1"><PlayArrow /></span>
+                        <span>
+                            Watch Film
+                        </span>
+                    </Link>
+                
+                    {/* Secondary Action */}
+                    <div className="flex gap-8">
+                        <button className="flex flex-col items-center gap-2 group">
+                            <div className="size-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm bg-white/5 group-active:bg-white/10">
+                                <span className="material-symbols-outlined text-white"><Add /></span>
+                            </div>
+                            <span className="text-[10px] uppercase tracking-tighter text-white/60">Watchlist</span>
+                        </button>
+                        <button class="flex flex-col items-center gap-2 group">
+                            <div class="size-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm bg-white/5 group-active:bg-white/10">
+                                <span class="material-symbols-outlined text-white"><MovieFilter /></span>
+                            </div>
+                            <span class="text-[10px] uppercase tracking-tighter text-white/60">Trailer</span>
+                        </button>
+                        <button class="flex flex-col items-center gap-2 group">
+                            <div class="size-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm bg-white/5 group-active:bg-white/10">
+                                <span class="material-symbols-outlined text-white"><Info /></span>
+                            </div>
+                            <span class="text-[10px] uppercase tracking-tighter text-white/60">Details</span>
+                        </button>
+
                     </div>
                 </div>
-                <div className="footer">
-                    <p>Exclusive for verified invitations</p>
-                    <p>2026 Studio Premiere</p>
+                
+                {/* Footer */}
+                <div className="mt-12 px-6 text-center">
+                    <p className='text-[10px] text-white/30 tracking-widest uppercase'>Exclusive for verified invitations • © 2026 Studio Premiere</p>
                 </div>
             </div>
         </div>

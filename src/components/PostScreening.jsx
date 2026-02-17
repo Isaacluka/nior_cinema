@@ -57,9 +57,8 @@ const PostScreening = () => {
 
             {/* Feedback Section */}
             <div className="px-8 pb-12 flex flex-col space-y-6 max-w-[380px]">
-                <div className="space-y-3 ">
-
-                    <label className='text-white/40 text-xs font-bold uppercase leading-tight tracking-[0.2em] flex-1 text-center my-6'>Private Remarks</label>
+                <div className="space-y-3">
+                    <label className='text-white/40 text-xs font-bold uppercase leading-tight tracking-[0.2em] flex-1 text-center my-6 align-right'>Private Remarks</label>
                     <textarea className='w-full bg-white/5 border border-white/10 rounded-lg p-5 text-white placeholder:text-white/20 focus:ring-1 focus:ring-primary/40 focus:border-primary/40 focus:outline-none text-base resize-none font-light italic leading-relaxed' 
                     placeholder='Share your thoughts with the filmmakers...' 
                     rows='5' 

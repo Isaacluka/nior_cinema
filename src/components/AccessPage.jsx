@@ -28,7 +28,7 @@ const AccessPage = () => {
 
                 <div className="space-y-2 text-center">
                     <h3 className='text-white/90 text-xl font-medium tracking-tight'>ENTER ACCESS KEY</h3>
-                    <p className='text-white/40 text-sm font-normal leading-relaxed px-8'>Strictly Confidential. Your Unique cinematic is required for entry.</p>
+                    <p className='text-white/40 text-sm font-normal leading-relaxed px-8'>Strictly Confidential. <br/> Your Unique access key is required for entry.</p>
                 </div>
 
                 {/* Textfield */}
