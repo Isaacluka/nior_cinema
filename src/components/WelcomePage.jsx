@@ -80,7 +80,7 @@ const WelcomePage = () => {
                         </button>
                         <button class="flex flex-col items-center gap-2 group">
                             <div class="size-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm bg-white/5 group-active:bg-white/10">
-                                <span class="material-symbols-outlined text-white"><MovieFilter /></span>
+                                <span className="material-symbols-outlined text-white"><MovieFilter /></span>
                             </div>
                             <span class="text-[10px] uppercase tracking-tighter text-white/60">Trailer</span>
                         </button>
