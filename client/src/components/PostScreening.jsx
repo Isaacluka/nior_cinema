@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Link, useParams } from 'react-router'
 import CloseIcon from '@mui/icons-material/Close';
 import Star from '@mui/icons-material/Star';
