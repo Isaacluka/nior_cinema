@@ -9,6 +9,10 @@ app.use(express.json());
 
 const SECRET = "noir_super_secret";
 
+app.get ("/", (req, res) => {
+  res.send("Backend is running!!!");
+});
+
 // Renamed Server to server
 
 // Fake database (replace with MongoDB later)
