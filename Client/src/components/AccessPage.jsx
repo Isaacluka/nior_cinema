@@ -11,6 +11,8 @@ const AccessPage = () => {
     const { name } = useParams();
     const navigate = useNavigate();
 
+    // Renamed Client to client
+
     const handleSubmit = async () => {
         // e.preventDefault();
         const response = await fetch("http://localhost:5000/api/verify", {

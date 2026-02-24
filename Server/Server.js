@@ -9,6 +9,8 @@ app.use(express.json());
 
 const SECRET = "noir_super_secret";
 
+// Renamed Server to server
+
 // Fake database (replace with MongoDB later)
 const validPins = ["12345678", "87654321"];
 
