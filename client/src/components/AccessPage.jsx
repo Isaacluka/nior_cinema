@@ -12,6 +12,7 @@ const AccessPage = () => {
     const navigate = useNavigate();
 
     // Renamed Client to client
+    // Made adjustment on Netlify deployment settings
 
     const handleSubmit = async () => {
         // e.preventDefault();
