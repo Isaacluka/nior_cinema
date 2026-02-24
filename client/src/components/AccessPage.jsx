@@ -15,7 +15,7 @@ const AccessPage = () => {
 
     const handleSubmit = async () => {
         // e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/verify", {
+        const response = await fetch("https://noir-cinema-api.onrender.com/api/verify", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ pin }),
