@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import jwt from "jsonwebtoken";
 
+const express = require("express");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -16,6 +17,19 @@ app.get ("/", (req, res) => {
 // Renamed Server to server
 
 // Fake database (replace with MongoDB later)
+app.post("/api/review", (req, res) => {
+  const { rating } = req.body;
+  console.log(req.body);
+
+  if (!rating || rating < 1 || rating > 5) {
+    return res.status(400).json({ message: "Invalid rating" });
+  }
+
+  // TODO: Save to database
+
+  res.json({ message: "Review saved successfully" });
+});
+
 const validPins = ["12345678", "87654321"];
 
 app.post("/api/verify", (req, res) => {

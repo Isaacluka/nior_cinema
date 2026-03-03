@@ -78,17 +78,17 @@ const WelcomePage = () => {
                             </div>
                             <span className="text-[10px] uppercase tracking-tighter text-white/60">Watchlist</span>
                         </button>
-                        <button class="flex flex-col items-center gap-2 group">
-                            <div class="size-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm bg-white/5 group-active:bg-white/10">
+                        <button className="flex flex-col items-center gap-2 group">
+                            <div className="size-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm bg-white/5 group-active:bg-white/10">
                                 <span className="material-symbols-outlined text-white"><MovieFilter /></span>
                             </div>
-                            <span class="text-[10px] uppercase tracking-tighter text-white/60">Trailer</span>
+                            <span className="text-[10px] uppercase tracking-tighter text-white/60">Trailer</span>
                         </button>
-                        <button class="flex flex-col items-center gap-2 group">
-                            <div class="size-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm bg-white/5 group-active:bg-white/10">
-                                <span class="material-symbols-outlined text-white"><Info /></span>
+                        <button className="flex flex-col items-center gap-2 group">
+                            <div className="size-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm bg-white/5 group-active:bg-white/10">
+                                <span className="material-symbols-outlined text-white"><Info /></span>
                             </div>
-                            <span class="text-[10px] uppercase tracking-tighter text-white/60">Details</span>
+                            <span className="text-[10px] uppercase tracking-tighter text-white/60">Details</span>
                         </button>
 
                     </div>

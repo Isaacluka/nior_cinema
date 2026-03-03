@@ -1,19 +1,41 @@
-import React from 'react';
-import { Link, useParams } from 'react-router'
+// import React from 'react';
+import { Link, useParams } from 'react-router-dom'
 import CloseIcon from '@mui/icons-material/Close';
 import Star from '@mui/icons-material/Star';
 import StarOutline from '@mui/icons-material/StarBorderOutlined';
 import MovieFilter from '@mui/icons-material/Movie';
+import Rating from '@mui/material/Rating';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const PostScreening = () => {
+    const navigate = useNavigate();
+    
+
+    const handleReviewSubmit = async () => {
+        const done = await fetch("https://noir-cinema-api.onrender.com/api/review", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ rating: value }),
+        });
+
+        if (done.ok){
+            navigate("/", { replace: true });
+        }
+        
+    }; 
+
+
+    const [value, setValue] = useState(0);
+
     const { name } = useParams();
   return (
     <>
         <div className=' relative flex w-full flex-col items-center overflow-x-hidden'>        
             <div className="flex items-center w-full bg-transparent justify-between">
                 <div className="text-white/60 flex size-10 shrink-0 items-center justify-center cursor-pointer">
-                    <span class="material-symbols-outlined text-2xl"><CloseIcon /></span>
+                    <span className="material-symbols-outlined text-2xl"><CloseIcon /></span>
                 </div>
                 <h2 className='text-white/40 text-xs font-bold uppercase leading-tight tracking-[0.2em] flex-1 text-center pr-10'>Exclusive Access</h2>
             
@@ -32,7 +54,7 @@ const PostScreening = () => {
             <div className="flex flex-col items-center py-8">
                 <h2 className='text-primary text-[10px] font-bold leading-normal tracking-[0.3em] uppercase mb-6'>Rate the Experience</h2>
                 
-                <div className="flex gap-4 px-4">
+                {/* <div className="flex gap-4 px-4">
                     <div className="flex items-center justify-center transition-all duration-300">
                         <span className="material-symbols-outlined text-primary text-4xl cursor-pointer"><Star /></span>
                     </div>
@@ -52,11 +74,29 @@ const PostScreening = () => {
                     <div className="flex items-center justify-center transition-all duration-300">
                         <span className="material-symbols-outlined star-outline text-primary/30 text-4xl cursor-pointer"><StarOutline /></span>
                     </div>
-                </div>
+                </div> */}
+            
+
+            <Rating
+                name="user-rating"
+                value={value}
+                onChange={(event, newValue) => {
+                setValue(newValue);
+                 }}
+                className='material-symbols-outlined flex gap-4 px-4 text-primary text-4xl cursor-pointer'
+                sx={{
+                    color: "var(--color-primary)",
+                    "& .MuiRating-iconEmpty":{
+                        color:"var(--color-primary)"
+                    }
+               
+                }}
+            />
+
             </div>
 
             {/* Feedback Section */}
-            <div className="px-8 pb-12 flex flex-col space-y-6 max-w-[380px]">
+            <div className="flex flex-col px-8 pb-12  space-y-6 max-w-[380px]">
                 <div className="space-y-3">
                     <label className='text-white/40 text-xs font-bold uppercase leading-tight tracking-[0.2em] flex-1 text-center my-6 align-right'>Private Remarks</label>
                     <textarea className='w-full bg-white/5 border border-white/10 rounded-lg p-5 text-white placeholder:text-white/20 focus:ring-1 focus:ring-primary/40 focus:border-primary/40 focus:outline-none text-base resize-none font-light italic leading-relaxed' 
@@ -67,10 +107,10 @@ const PostScreening = () => {
                 
                 </div>
                 
-                <div className='w-full bg-primary flex hover:primary/90 text-white font-medium py-4 rounded transition-color uppercase tracking-[0.2em] text-xs shadow-lg shadow-primary/10 items-center justify-center'>
-                    <Link to="/">
+                <div onClick={handleReviewSubmit} className='w-full bg-primary flex hover:primary/90 text-white font-medium py-4 rounded transition-color uppercase tracking-[0.2em] text-xs shadow-lg shadow-primary/10 items-center justify-center'>
+                    
                         <div>Submit Feedback</div>
-                    </Link>
+    
                 </div>
 
                 <p className='text-white/30 text-[10px] italic font-light'>Your Feedback is private and shared exclusively with the production team.</p>
