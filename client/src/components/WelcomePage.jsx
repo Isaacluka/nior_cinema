@@ -55,7 +55,7 @@ const WelcomePage = () => {
                         <span className="size-1 rounded-full bg-primary"></span>
                         <span>Psychological Thriller</span>
                         <span className="size-1 rounded-full bg-primary"></span>
-                        <span className="border border-white/30 px-2 py-1.5 items-center rounded text-[10px]">R</span>
+                        <span className="border border-white/30 px-2 py-1.5 items-center rounded text-[10px]">PG</span>
                     </p>
                 </div>
                 
