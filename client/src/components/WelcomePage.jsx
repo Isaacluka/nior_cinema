@@ -42,22 +42,22 @@ const WelcomePage = () => {
             {/* Spacer */}
             <div className="flex-1 flex flex-col justify-end pb-12 relative z-10">
             
-                {/* Movie Title */}
-                <div className="px-6 text-center mb-2">
-                    <h1 className='text-white tracking-tight text-5xl md:text-6xl font-bold italic leadIng-tight drop-shadow-2xl'>
-                        THE VELVET SILENCE
-                    </h1>
-                </div>
-                {/* Movie Metadata */}
-                <div className="px-6 text-center mb-8">
-                    <p className='text-white/70 text-sm font-light tracking-widest uppercase flex items-center justify-center gap-2'>
-                        <span>2H 14M</span>
-                        <span className="size-1 rounded-full bg-primary"></span>
-                        <span>Psychological Thriller</span>
-                        <span className="size-1 rounded-full bg-primary"></span>
-                        <span className="border border-white/30 px-2 py-1.5 items-center rounded text-[10px]">PG</span>
-                    </p>
-                </div>
+            {/* Movie Title */}
+            <div className="px-6 text-center mb-2">
+                <h1 className='text-white tracking-tight text-5xl md:text-6xl font-bold italic leadIng-tight drop-shadow-2xl'>
+                    THE VELVET SILENCE
+                </h1>
+            </div>
+            {/* Movie Metadata */}
+            <div className="px-6 text-center mb-8">
+                <p className='text-white/70 text-sm font-light tracking-widest uppercase flex items-center justify-center gap-2'>
+                    <span>2H 14M</span>
+                    <span className="size-1 rounded-full bg-primary"></span>
+                    <span>Psychological Thriller</span>
+                    <span className="size-1 rounded-full bg-primary"></span>
+                    <span className="border border-white/30 px-2 py-1.5 items-center rounded text-[10px]">PG</span>
+                </p>
+            </div>
                 
                 {/* CTA */}
                 <div className="flex flex-col items-center px-6 gap-6">

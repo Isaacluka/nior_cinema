@@ -15,7 +15,7 @@ const LandingPage = () => {
   <>
     <div class="film-grain"></div>
     {/* Top Navigation */}
-    <nav className="sticky top-0 z-40 w-full bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+    <nav className="sticky top-0 z-40 w-full bg-background-dark/80 backdrop-blur-md border-b border-primary/10 flex flex-col items-center">
         <div className="flex items-center p-4 justify-between max-w-lg mx-auto">
             <div className="flex items-center gap-2">
                 {/* <span className="material-symbols-outlined text-primary text-2xl"><Movie /></span> */}
@@ -30,10 +30,17 @@ const LandingPage = () => {
     {/* Hero Section */}
     <section class="relative px-6 py-16 flex flex-col items-center text-center gap-8 overflow-hidden">
         <div class="absolute inset-0 glow-accent -z-10"></div>
+
+        {/* Spacer */}
+        {/* <div className="w-full border border-red-400 flex-1 flex flex-col justify-end pb-36 relative z-10"></div> */}
+        
+        {/* Hero Text */}
         <div class="space-y-4">
-            <h1 class="text-white text-4xl md:text-5xl font-extrabold tracking-tighter">
+            <h1 class="text-white text-4xl md:text-5xl font-extrabold tracking-tight">
                 The Global Digital Cinema for <span class="text-primary italic">Nollywood._</span>
             </h1>
+            <div className="w-full border border-red-400 flex-1 flex flex-col justify-end pb-36 relative z-10"></div>
+
             <p class="text-white/90 text-base font-normal leading-relaxed max-w-md mx-auto">
                 Experience premium African storytelling redefined through cinematic excellence and global accessibility.
             </p>
