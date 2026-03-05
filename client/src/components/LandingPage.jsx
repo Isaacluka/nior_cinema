@@ -39,7 +39,7 @@ const LandingPage = () => {
             <h1 class="text-white text-4xl md:text-5xl font-extrabold tracking-tight">
                 The Global Digital Cinema for <span class="text-primary italic">Nollywood._</span>
             </h1>
-            <div className="w-full border border-red-400 flex-1 flex flex-col justify-end pb-36 relative z-10"></div>
+            <div className="w-full flex-1 flex flex-col justify-end pb-36 relative z-10"></div>
 
             <p class="text-white/90 text-base font-normal leading-relaxed max-w-md mx-auto">
                 Experience premium African storytelling redefined through cinematic excellence and global accessibility.
