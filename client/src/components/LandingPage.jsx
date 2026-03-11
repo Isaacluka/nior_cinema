@@ -30,7 +30,7 @@ const LandingPage = () => {
             console.log("Could not get location, defaulting to Unknown");
         }
 
-        await fetch("https://noir-cinema-api.onrender.com/api/waitlist", {
+        await fetch("https://sheetdb.io/api/v1/7gralaadmp8tb", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
