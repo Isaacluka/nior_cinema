@@ -38,7 +38,8 @@ const LandingPage = () => {
             body:JSON.stringify({ 
                 email: email,
                 role: role,
-                location: location
+                location: location,
+                joinedAt: new Date()
              })
         });
 
