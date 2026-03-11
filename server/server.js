@@ -9,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 const SECRET = "noir_super_secret";
+const waitlist =[];
 
 app.get ("/", (req, res) => {
   res.send("Backend is running!!!");
