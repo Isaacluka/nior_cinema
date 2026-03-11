@@ -18,7 +18,7 @@ app.get ("/", (req, res) => {
 //Email capture
 
 app.post("/api/waitlist", async (req, res) => {
-  const { email, role } = req.body;
+  const { email, role, location } = req.body;
 
   if (!email || !role) {
     return res.status(400).json({ message: "Email and role required" });
