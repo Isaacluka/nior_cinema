@@ -7,6 +7,14 @@ import { useState } from 'react';
 
 
 const LandingPage = () => {
+
+    const getLocation = async () => {
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+        return data.country_name;
+    };
+
+
     const navigate = useNavigate();
 
     const [role, setRole] = useState("user");
@@ -19,6 +27,8 @@ const LandingPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const location = await getLocation();
+
         await fetch("https://noir-cinema-api.onrender.com/api/waitlist", {
             method: "POST",
             headers: {
@@ -26,7 +36,8 @@ const LandingPage = () => {
             },
             body:JSON.stringify({ 
                 email: email,
-                role: role
+                role: role,
+                location: location
              })
         });
 
