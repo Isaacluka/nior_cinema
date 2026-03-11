@@ -37,6 +37,9 @@ app.post("/api/waitlist", async (req, res) => {
 app.get("/api/waitlist", (req, res) => {
   res.send("Waitlist API working");
 });
+app.get("/api/waitlist/all", (req, res) => {
+  res.json(waitlist);
+});
 // Renamed Server to server
 
 // Fake database (replace with MongoDB later)
