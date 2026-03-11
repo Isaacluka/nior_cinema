@@ -8,14 +8,7 @@ import { useState } from 'react';
 
 const LandingPage = () => {
 
-    const getLocation = async () => {
-        const res = await fetch("https://ipapi.co/json/");
-        const data = await res.json();
-        return data.country_name;
-    };
-
-
-    const navigate = useNavigate();
+        const navigate = useNavigate();
 
     const [role, setRole] = useState("user");
     const [email, setEmail] = useState("");
@@ -27,7 +20,15 @@ const LandingPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const location = await getLocation();
+        let location = "Unknown";
+
+        try {
+            const res = await fetch("https://ipapi.co/json/");
+            const data = await res.json();
+            location = data.country_name || "Unkown";
+        } catch(err) {
+            console.log("Could not get location, defaulting to Unknown");
+        }
 
         await fetch("https://noir-cinema-api.onrender.com/api/waitlist", {
             method: "POST",
