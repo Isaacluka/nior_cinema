@@ -10,12 +10,11 @@ const LandingPage = () => {
     const navigate = useNavigate();
 
     const [active, setActive] = useState("user");
+    const [email, setEmail] = useState("");
 
     const handleDemo = () => {
         navigate("accesspage", { replace: true });
     }
-
-    const [email, setEmail] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -28,7 +27,7 @@ const LandingPage = () => {
             body:JSON.stringify({ email })
         });
 
-        setEmail("")
+        setEmail("");
     };
 
   return (
@@ -202,7 +201,7 @@ const LandingPage = () => {
                          onClick={() => setActive("producer")}>I’m a Producer</button>
                 </div>
                 <div class="space-y-4">
-                    {/* <form onSubmit={handleSubmit}> */}
+                    <form onSubmit={handleSubmit}>
                     <input 
                         type="email"
                         value={email}
@@ -211,10 +210,10 @@ const LandingPage = () => {
                         placeholder="Enter your email address"
                         required
                     />
-                    <button onClick={handleSubmit} class="w-full bg-primary text-white h-14 rounded font-medium text-xs uppercase tracking-[0.2em] shadow-primary/20 transition-all hover:bg-primary/90 active:scale-95 shadow-lg">
+                    <button type='submit' class="w-full bg-primary text-white h-14 rounded font-medium text-xs uppercase tracking-[0.2em] shadow-primary/20 transition-all hover:bg-primary/90 active:scale-95 shadow-lg">
                         Secure Access
                     </button>
-                    {/* </form> */}
+                    </form> 
                     {/* <div className='block w-full bg-primary hover:primary/90 text-white font-medium py-4 rounded transition-color uppercase tracking-[0.2em] text-xs shadow-lg shadow-primary/10 truncate uppercase w-full cursor-pointer flex items-center justify-center rounded h-14 bg-primary text-white text-sm font-bold tracking-[0.2em]  shadow-primary/20'
                         >
                         Validate Invite
