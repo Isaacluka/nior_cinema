@@ -18,15 +18,24 @@ app.get ("/", (req, res) => {
 //Email capture
 
 app.post("/api/waitlist", async (req, res) => {
-  const { email } = req.body;
+  const { email, role } = req.body;
 
-  if (!email) {
-    return res.status(400).json({ message: "Email is required" });
+  if (!email || !role) {
+    return res.status(400).json({ message: "Email and role required" });
+  }
+  
+  const exists = waitlist.find(entry => entry.email === email);
+
+  if (exists) {
+    return res.status(409).json({ message: "Email already on waitlist" });
   }
 
   try {
     // Save email (example using array for now)
-    waitlist.push(email);
+    waitlist.push({
+      email,
+      role
+    });
 
     res.status(200).json({ message: "Successfully joined waitlist" });
   } catch (error) {

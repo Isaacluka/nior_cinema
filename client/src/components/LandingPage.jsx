@@ -9,7 +9,7 @@ import { useState } from 'react';
 const LandingPage = () => {
     const navigate = useNavigate();
 
-    const [active, setActive] = useState("user");
+    const [role, setRole] = useState("user");
     const [email, setEmail] = useState("");
 
     const handleDemo = () => {
@@ -24,7 +24,10 @@ const LandingPage = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body:JSON.stringify({ email })
+            body:JSON.stringify({ 
+                email: email,
+                role: role
+             })
         });
 
         setEmail("");
@@ -194,11 +197,11 @@ const LandingPage = () => {
                 
                 <div className="toggle flex p-1 bg-slate-900 rounded-lg">
                     <button 
-                        className={`flex-1 py-2 text-sm font-bold text-slate-400 ${active === "user" ? "active text-white bg-primary rounded shadow-sm" : ""}`}
-                        onClick={() => setActive("user")}>I’m a Film Lover</button>
+                        className={`flex-1 py-2 text-sm font-bold text-slate-400 ${role === "user" ? "active text-white bg-primary rounded shadow-sm" : ""}`}
+                        onClick={() => setRole("user")}>I’m a Film Lover</button>
                     <button 
-                        className={`flex-1 py-2 text-sm font-bold text-slate-400 ${active === "producer" ? "active text-white bg-primary rounded shadow-sm" : ""}`}
-                         onClick={() => setActive("producer")}>I’m a Producer</button>
+                        className={`flex-1 py-2 text-sm font-bold text-slate-400 ${role === "producer" ? "active text-white bg-primary rounded shadow-sm" : ""}`}
+                         onClick={() => setRole("producer")}>I’m a Producer</button>
                 </div>
                 <div class="space-y-4">
                     <form onSubmit={handleSubmit}>
