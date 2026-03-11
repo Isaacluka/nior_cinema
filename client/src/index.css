@@ -79,7 +79,10 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255,255,255,0.45);
 }
-
+.toggle button.active{
+  background-color: var(--color-primary);
+  border-radius: ;
+}
 /*a {
   font-weight: 500;
   color: #646cff;

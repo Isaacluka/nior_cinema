@@ -2,15 +2,35 @@ import React from 'react'
 import { Movie, MovieEdit, Campaign, Public, PlayCircle } from '@mui/icons-material';
 import { Stream, Favorite, CheckCircle, PlayArrow, Shield } from '@mui/icons-material';
 import { useNavigate } from 'react-router';
+import { useState } from 'react';
 
 
 
 const LandingPage = () => {
     const navigate = useNavigate();
 
+    const [active, setActive] = useState("user");
+
     const handleDemo = () => {
         navigate("accesspage", { replace: true });
     }
+
+    const [email, setEmail] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        await fetch("https://noir-cinema-api.onrender.com/api/waitlist", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body:JSON.stringify({ email })
+        });
+
+        setEmail("")
+    };
+
   return (
   <>
     <div class="film-grain"></div>
@@ -32,14 +52,14 @@ const LandingPage = () => {
         <div class="absolute inset-0 glow-accent -z-10"></div>
 
         {/* Spacer */}
-        {/* <div className="w-full border border-red-400 flex-1 flex flex-col justify-end pb-36 relative z-10"></div> */}
+        <div className="w-full flex-1 flex flex-col justify-end pb-12 relative z-10"></div>
         
         {/* Hero Text */}
         <div class="space-y-4">
             <h1 class="text-white text-4xl md:text-5xl font-extrabold tracking-tight">
                 The Global Digital Cinema for <span class="text-primary italic">Nollywood._</span>
             </h1>
-            <div className="w-full flex-1 flex flex-col justify-end pb-36 relative z-10"></div>
+            <div className="w-full flex-1 flex flex-col justify-end pb-12 relative z-10"></div>
 
             <p class="text-white/90 text-base font-normal leading-relaxed max-w-md mx-auto">
                 Experience premium African storytelling redefined through cinematic excellence and global accessibility.
@@ -111,7 +131,7 @@ const LandingPage = () => {
                     <p class="text-slate-400 leading-relaxed">Time-limited access. Encrypted streaming. Individual watermark protection.</p>
                 </div>
             </div>
-            <p className='text-center text-white/40 leading-relaxed'>Designed to protect theatrical value <span>--not replace it.</span></p>
+            <p className='text-center text-white/90 text-4xl pt-16 text-bold italic leading-relaxed'>Noir Cinema is designed to protect theatrical value <span>--not replace it.</span></p>
         </div>
     </section>
 
@@ -172,15 +192,29 @@ const LandingPage = () => {
                 <p class="text-slate-400">Join our exclusive early access list for the grand opening.</p>
             </div>
             <div class="bg-background-dark p-6 rounded-2xl border border-slate-800 space-y-6 shadow-2xl">
-                <div class="flex p-1 bg-slate-900 rounded-lg">
-                    <button class="flex-1 py-2 text-sm font-bold text-white bg-primary rounded shadow-sm">I’m a Film Lover</button>
-                    <button class="flex-1 py-2 text-sm font-bold text-slate-400">I’m a Producer</button>
+                
+                <div className="toggle flex p-1 bg-slate-900 rounded-lg">
+                    <button 
+                        className={`flex-1 py-2 text-sm font-bold text-slate-400 ${active === "user" ? "active text-white bg-primary rounded shadow-sm" : ""}`}
+                        onClick={() => setActive("user")}>I’m a Film Lover</button>
+                    <button 
+                        className={`flex-1 py-2 text-sm font-bold text-slate-400 ${active === "producer" ? "active text-white bg-primary rounded shadow-sm" : ""}`}
+                         onClick={() => setActive("producer")}>I’m a Producer</button>
                 </div>
                 <div class="space-y-4">
-                    <input class="w-full bg-slate-900/50 border-slate-800 rounded-lg p-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Enter your email address" type="email"/>
-                    <button class="w-full bg-primary text-white h-14 rounded font-medium text-xs uppercase tracking-[0.2em] shadow-primary/20 transition-all hover:bg-primary/90 active:scale-95 shadow-lg">
+                    {/* <form onSubmit={handleSubmit}> */}
+                    <input 
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full bg-slate-900/50 border-slate-800 rounded-lg p-4 text-slate-100 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" 
+                        placeholder="Enter your email address"
+                        required
+                    />
+                    <button onClick={handleSubmit} class="w-full bg-primary text-white h-14 rounded font-medium text-xs uppercase tracking-[0.2em] shadow-primary/20 transition-all hover:bg-primary/90 active:scale-95 shadow-lg">
                         Secure Access
                     </button>
+                    {/* </form> */}
                     {/* <div className='block w-full bg-primary hover:primary/90 text-white font-medium py-4 rounded transition-color uppercase tracking-[0.2em] text-xs shadow-lg shadow-primary/10 truncate uppercase w-full cursor-pointer flex items-center justify-center rounded h-14 bg-primary text-white text-sm font-bold tracking-[0.2em]  shadow-primary/20'
                         >
                         Validate Invite

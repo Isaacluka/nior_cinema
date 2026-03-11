@@ -14,6 +14,28 @@ app.get ("/", (req, res) => {
   res.send("Backend is running!!!");
 });
 
+//Email capture
+
+app.post("/api/waitlist", async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ message: "Email is required" });
+  }
+
+  try {
+    // Save email (example using array for now)
+    waitlist.push(email);
+
+    res.status(200).json({ message: "Successfully joined waitlist" });
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+app.get("/api/waitlist", (req, res) => {
+  res.send("Waitlist API working");
+});
 // Renamed Server to server
 
 // Fake database (replace with MongoDB later)
@@ -47,7 +69,7 @@ app.post("/api/verify", (req, res) => {
 
   res.json({ token });
 });
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log("Server running");
