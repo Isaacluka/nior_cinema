@@ -1,9 +1,9 @@
 import React from 'react'
 import { Movie, MovieEdit, Campaign, Public, PlayCircle } from '@mui/icons-material';
-import { Stream, Favorite, CheckCircle, PlayArrow, Shield } from '@mui/icons-material';
+import { Stream, Favorite, CheckCircle, PlayArrow, Shield, Message,  } from '@mui/icons-material';
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
-
+import { motion } from 'framer-motion';
 
 
 const LandingPage = () => {
@@ -50,6 +50,15 @@ const LandingPage = () => {
         setEmail("");
     };
 
+    // Email Variables
+    const recipientEmail = 'lukaisaacabdulkarim@gmail.com';
+    const subject = 'Regarding Noir Cinema';
+    const body = 'Hello, I would like to discuss...';
+
+    // Encode the subject and body for proper URL formatting
+    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+
   return (
   <>
     <div class="film-grain"></div>
@@ -70,15 +79,46 @@ const LandingPage = () => {
     <section class="relative px-6 py-16 flex flex-col items-center text-center gap-8 overflow-hidden">
         <div class="absolute inset-0 glow-accent -z-10"></div>
 
+        {/* Contact Button */}
+
+        <a
+            href={mailtoLink}
+            className="fixed top-30 right-6 bg-primary w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300"
+            >
+            💬
+        </a>
+        
+
+        
         {/* Spacer */}
-        <div className="w-full flex-1 flex flex-col justify-end pb-12 relative z-10"></div>
+        <div className="w-full flex-1 flex flex-col justify-end pb-24 relative z-10"></div>
         
         {/* Hero Text */}
-        <div class="space-y-4">
-            <h1 class="text-white text-4xl md:text-5xl font-extrabold tracking-tight">
-                The Global Digital Cinema for <span class="text-primary italic">Nollywood._</span>
-            </h1>
-            <div className="w-full flex-1 flex flex-col justify-end pb-12 relative z-10"></div>
+        <div className="space-y-4">
+            <motion.h1 
+            style={{overflow: "hidden"}}
+                    initial={{y: 30,opacity:0}}
+                    animate={{y: 0, opacity:1}}
+                    transition={{ duration: 2, ease: "easeInOut"}}
+                    class="text-white text-4xl md:text-7xl font-extrabold font-special tracking-tight">
+                <span>The Global Digital Cinema for</span><br />
+                <motion.span 
+                    style={{overflow: "hidden", whiteSpace: "nowrap", display: "inline-block"}}
+                    initial={{ clipPath: "inset(0 100% 0 0)", filter: "blur(3px)" }}
+                    animate={{ clipPath: "inset(0 0% 0 0)", filter: "blur(0px)" }}
+                    transition={{ duration: 2, ease: "easeInOut"}}
+                    className="text-primary italic">{"  "}Nollywood.
+                    <motion.span
+                        animate={{ opacity: [1, 0, 1] }}
+                        transition={{ duration: 1, repeat: Infinity }}
+                        >
+                        |
+                    </motion.span>
+                </motion.span>
+            </motion.h1>
+
+            {/* Spacer */}
+            {/* <div className="w-full flex-1 flex flex-col justify-end pb-12 relative z-10"></div> */}
 
             <p class="text-white/90 text-base font-normal leading-relaxed max-w-md mx-auto">
                 Experience premium African storytelling redefined through cinematic excellence and global accessibility.
@@ -221,7 +261,7 @@ const LandingPage = () => {
                          onClick={() => setRole("producer")}>I’m a Producer</button>
                 </div>
                 <div class="space-y-4">
-                    <form onSubmit={handleSubmit}>
+                    <form className="space-y-4"onSubmit={handleSubmit}>
                     <input 
                         type="email"
                         value={email}

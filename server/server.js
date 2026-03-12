@@ -40,7 +40,10 @@ app.post("/api/waitlist", limiter, async (req, res) => {
   }
 
   try {
-    const response = await fetch("https://ipapi.co/json/");
+    const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+
+    const response = await fetch(`https://ipapi.co/${ip}/json/`);
+    
     const data = await response.json();
     location = data.country_name || "Unknown";
   } catch(err) {
