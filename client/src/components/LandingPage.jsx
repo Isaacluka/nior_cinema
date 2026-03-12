@@ -31,7 +31,7 @@ const LandingPage = () => {
         // }
 
         const response = await fetch(
-            "https://noir-cinema-api.onrender.comapi/waitlist", {
+            "https://noir-cinema-api.onrender.com/api/waitlist", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
