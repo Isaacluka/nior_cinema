@@ -33,10 +33,10 @@ app.post("/api/waitlist", async (req, res) => {
   try {
     // Save email (example using array for now)
     waitlist.push({
-      email,
-      role,
-      location: location || "Unknown",
-      joinedAt: new Date()
+      Email,
+      Role,
+      Location: location || "Unknown",
+      DateJoined: new Date()
     });
 
     res.status(200).json({ message: "Successfully joined waitlist" });
