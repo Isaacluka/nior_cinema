@@ -30,15 +30,22 @@ const LandingPage = () => {
         //     console.log("Could not get location, defaulting to Unknown");
         // }
 
-        fetch("api/waitlist", {
+        const response = await fetch(
+            "https://noir-cinema-api.onrender.comapi/waitlist", {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
             body:JSON.stringify({
                 Email: email,
                 Role: role,
-                Location: location,
-                DateJoined: new Date()
+                // DateJoined: new Date()
             })
         });
+
+        const data = await response.json();
+
+        alert(data.message)
 
         setEmail("");
     };
