@@ -35,11 +35,15 @@ const LandingPage = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body:JSON.stringify({ 
-                email: email,
-                role: role,
-                location: location,
-                joinedAt: new Date()
+            body:JSON.stringify({
+                data: [ 
+                    {
+                        Email: email,
+                        Role: role,
+                        Location: location,
+                        DateJoined: new Date()
+                    }
+                ]
              })
         });
 
