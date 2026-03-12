@@ -18,31 +18,52 @@ app.get ("/", (req, res) => {
 //Email capture
 
 app.post("/api/waitlist", async (req, res) => {
-  const { email, role, location } = req.body;
 
-  if (!email || !role) {
-    return res.status(400).json({ message: "Email and role required" });
-  }
-  
-  const exists = waitlist.find(entry => entry.email === email);
-
-  if (exists) {
-    return res.status(409).json({ message: "Email already on waitlist" });
-  }
+  let location = "Unknown";
 
   try {
-    // Save email (example using array for now)
-    waitlist.push({
-      Email,
-      Role,
-      Location: location || "Unknown",
-      DateJoined: new Date()
-    });
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+        location = data.country_name || "Unkown";
+      } catch(err) {
+        console.log("Could not get location, defaulting to Unknown");
+      }
 
-    res.status(200).json({ message: "Successfully joined waitlist" });
-  } catch (error) {
-    res.status(500).json({ message: "Server error" });
-  }
+  await fetch("https://sheetdb.io/api/v1/7gralaadmp8tb", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body:JSON.stringify({
+                data: [req.body]
+             })
+        });
+        
+  // const { email, role, location } = req.body;
+
+  // if (!email || !role) {
+  //   return res.status(400).json({ message: "Email and role required" });
+  // }
+  
+  // const exists = waitlist.find(entry => entry.email === email);
+
+  // if (exists) {
+  //   return res.status(409).json({ message: "Email already on waitlist" });
+  // }
+
+  // try {
+  //   // Save email (example using array for now)
+  //   waitlist.push({
+  //     Email,
+  //     Role,
+  //     Location: location || "Unknown",
+  //     DateJoined: new Date()
+  //   });
+
+  //   res.status(200).json({ message: "Successfully joined waitlist" });
+  // } catch (error) {
+  //   res.status(500).json({ message: "Server error" });
+  // }
 });
 
 app.get("/api/waitlist", (req, res) => {

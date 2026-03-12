@@ -20,31 +20,24 @@ const LandingPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        let location = "Unknown";
+        // let location = "Unknown";
 
-        try {
-            const res = await fetch("https://ipapi.co/json/");
-            const data = await res.json();
-            location = data.country_name || "Unkown";
-        } catch(err) {
-            console.log("Could not get location, defaulting to Unknown");
-        }
+        // try {
+        //     const res = await fetch("https://ipapi.co/json/");
+        //     const data = await res.json();
+        //     location = data.country_name || "Unkown";
+        // } catch(err) {
+        //     console.log("Could not get location, defaulting to Unknown");
+        // }
 
-        await fetch("https://sheetdb.io/api/v1/7gralaadmp8tb", {
+        fetch("api/waitlist", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
             body:JSON.stringify({
-                data: [ 
-                    {
-                        Email: email,
-                        Role: role,
-                        Location: location,
-                        DateJoined: new Date()
-                    }
-                ]
-             })
+                Email: email,
+                Role: role,
+                Location: location,
+                DateJoined: new Date()
+            })
         });
 
         setEmail("");
