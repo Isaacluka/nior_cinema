@@ -41,7 +41,7 @@ app.post("/api/waitlist", limiter, async (req, res) => {
 
   try {
     const response = await fetch("https://ipapi.co/json/");
-    const data = await res.json();
+    const data = await response.json();
     location = data.country_name || "Unknown";
   } catch(err) {
     console.log("Could not get location, defaulting to Unknown");
