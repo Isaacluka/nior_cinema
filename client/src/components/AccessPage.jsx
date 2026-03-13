@@ -53,15 +53,14 @@ const AccessPage = () => {
                 <div className="mt-8 flex justify-center">
                     <h1 className='text-white text-3xl md:text-5xl font-extrabold italic tracking-tighter text-center'>THE VELVET SILENCE</h1>
                 </div>
-
             </div>
 
             {/* MAIN SECTION */}
-            <div className="flex flex-col items-center w-full max-w-[380px] space-y-8 mb-20">
+            <div className="flex flex-col items-center w-full max-w-[380px] space-y-8 mt-20 mb-20">
 
                 <div className="space-y-2 text-center">
                     <h3 className='text-white/90 text-xl font-medium tracking-tight'>ENTER ACCESS KEY</h3>
-                    <p className='text-white/40 text-sm font-normal leading-relaxed px-8'>Strictly Confidential. <br/> Your Unique cinematic invitation is required for entry.</p>
+                    <p className='text-white/40 text-xs font-normal leading-relaxed px-8'>Strictly Confidential. <br/> Your Unique cinematic invitation is required for entry.</p>
                 </div>
 
                 {/* Textfield */}
@@ -84,8 +83,8 @@ const AccessPage = () => {
                         Validate Invite
                     </div>
                 </div>
-                <div className='flex items-center gap-2 text-white/20 text-[10px] tracking-widest pt-4 uppercase'>
-                    <span className=' material-symbols-outlined text-[6px]'>{<LockIcon />}</span><p>Secure Environment</p>
+                <div className='flex items-center gap-2 text-white/20 text-[10px] tracking-widest pt-1 uppercase'>
+                    <span className=' material-symbols-outlined text-[8px]'>{<LockIcon />}</span><p>Secure Environment</p>
                 </div>
             </div>
 

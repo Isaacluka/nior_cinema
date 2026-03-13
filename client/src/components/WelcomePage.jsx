@@ -96,7 +96,7 @@ const WelcomePage = () => {
                 
                 {/* Footer */}
                 <div className="mt-12 px-6 text-center">
-                    <p className='text-[10px] text-white/30 tracking-widest uppercase'>Exclusive for verified invitations <br />•© 2026 NOIR Cinema Studio Premiere</p>
+                    <p className='text-[10px] text-white/30 tracking-widest uppercase'>Exclusive for verified invitations</p>
                 </div>
             </div>
         </div>

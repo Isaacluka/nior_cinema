@@ -158,7 +158,7 @@ const LandingPage = () => {
             {/* Spacer */}
             {/* <div className="w-full flex-1 flex flex-col justify-end pb-12 relative z-10"></div> */}
 
-            <p class="text-white/90 text-base font-normal leading-relaxed max-w-md mx-auto">
+            <p class="text-white/90 text-base lg:text-xl font-normal leading-relaxed max-w-md mx-auto">
                 Experience premium African storytelling redefined through cinematic excellence and global accessibility.
             </p>
             {/* <p class="text-white/90 text-base font-normal leading-relaxed max-w-md mx-auto">
@@ -189,7 +189,7 @@ const LandingPage = () => {
     {/* <!-- Problem Section --> */}
     <section class="px-6 py-20 bg-primary/5">
         <div class="max-w-md mx-auto text-center space-y-6">
-        <h2 class="text-slate-100 text-2xl font-bold leading-tight">Nollywood Has a Distribution Gap.</h2>
+        <h2 class="text-slate-100 text-4xl  font-bold leading-tight">Nollywood Has a Distribution Gap.</h2>
         <p class="text-slate-400 text-lg leading-relaxed">
             Despite being one of the largest film industries globally, reaching international audiences remains a challenge. We are building the bridge to bring high-quality Nollywood productions to every screen worldwide. <br/><br/>
             <span class="text-slate-100 font-bold italic">It's time for our stories to be seen as they were meant to be.</span>
@@ -242,6 +242,12 @@ const LandingPage = () => {
             {/* <p className='text-center text-white/90 text-4xl pt-16 text-bold italic leading-relaxed'>Noir Cinema is designed to protect theatrical value <br /><span>-- not replace it.</span></p> */}
         </div>
     </section>
+    
+    {/* Red Dash */}
+    <section className='flex flex-col items-center'>
+        <div className="w-24 h-[1px] text-center bg-primary/60 mb-6"></div>
+    </section>
+    
 
     {/* For Producers Section  */}
     <section class="px-6 py-12 flex flex-col items-center">
