@@ -2,8 +2,8 @@ import React from 'react'
 import { Movie, MovieEdit, Campaign, Public, PlayCircle } from '@mui/icons-material';
 import { Stream, Favorite, CheckCircle, PlayArrow, Shield, Message,  } from '@mui/icons-material';
 import { useNavigate } from 'react-router';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from "framer-motion";
 
 
 const LandingPage = () => {
@@ -58,6 +58,38 @@ const LandingPage = () => {
     // Encode the subject and body for proper URL formatting
     const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
+    // Scroll Animation
+
+    const Ref1 = useRef(null);
+    const Ref2= useRef(null);
+    const Ref3 = useRef(null);
+
+    // Track scroll of each card
+    const { scrollYProgress: progress1 } = useScroll({
+        target: Ref1,
+        offset: ["start end", "end end"], 
+        // "start end" = when top of div hits bottom of viewport
+        // "end start" = when bottom of div hits top of viewport
+    });
+    
+    const { scrollYProgress: progress2 } = useScroll({
+        target: Ref2,
+        offset: ["start end", "end end"], 
+        // "start end" = when top of div hits bottom of viewport
+        // "end start" = when bottom of div hits top of viewport
+    });
+    
+    const { scrollYProgress: progress3 } = useScroll({
+        target: Ref3,
+        offset: ["start end", "end end"], 
+        // "start end" = when top of div hits bottom of viewport
+        // "end start" = when bottom of div hits top of viewport
+    });
+
+    // Map scroll to scale (1 → 1.2)
+    const scale1 = useTransform(progress1, [0, 1], [.5, 1]);
+    const scale2 = useTransform(progress2, [0, 1], [.8, 1]);
+    const scale3 = useTransform(progress3, [0, 1], [.8, 1]);
 
   return (
   <>
@@ -166,30 +198,41 @@ const LandingPage = () => {
             <h2 class="text-slate-100 text-3xl">How It Works</h2>
         </div>
         <div class="flex flex-col justify-center gap-8 lg:w-3/4">
-            <div class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden">
+
+            <motion.div 
+                ref={Ref1}
+                style={{scale: scale1}}
+                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden">
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">01</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Movie /></span>
                     <h4 class="text-slate-100 text-xl font-bold mb-2 ">Release</h4>
                     <p class="text-slate-400 leading-relaxed">Films premiere in cinemas as usual.</p>
                 </div>
-            </div>
-            <div class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden">
+            </motion.div>
+
+            <motion.div
+                ref={Ref2}
+                style={{scale: scale2}} 
+                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden">
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">02</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Public /></span>
                     <h4 class="text-slate-100 text-xl font-bold mb-2">Extend</h4>
                     <p class="text-slate-400 leading-relaxed">Audiences purchase secure digital tickets where cinemas are unavailable.</p>
                 </div>
-            </div>
-            <div class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden">
+            </motion.div>
+            <motion.div 
+                ref={Ref3}
+                style={{scale: scale3}}
+                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden">
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">03</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Shield /></span>
                     <h4 class="text-slate-100 text-xl font-bold mb-2 ">Watch</h4>
                     <p class="text-slate-400 leading-relaxed">Time-limited access. Encrypted streaming. Individual watermark protection.</p>
                 </div>
-            </div>
+            </motion.div>
             <p className='text-center text-white/90 text-4xl pt-16 text-bold italic leading-relaxed'>Noir Cinema is designed to protect theatrical value <span>--not replace it.</span></p>
         </div>
     </section>
