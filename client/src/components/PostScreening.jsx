@@ -111,7 +111,7 @@ const PostScreening = () => {
                         <div>Submit Feedback</div>
                 </div>
 
-                <p className='text-white/30 text-[10px] italic font-light'>Your Feedback is private and shared exclusively with the production team.</p>
+                <p className='text-white/30 text-[10px] text-center italic font-light'>Your Feedback is private and shared exclusively with the production team.</p>
             </div> 
 
             {/* Footer */}
