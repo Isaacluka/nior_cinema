@@ -8,7 +8,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const LandingPage = () => {
 
-        const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [role, setRole] = useState("user");
     const [email, setEmail] = useState("");
@@ -91,6 +91,15 @@ const LandingPage = () => {
     const scale2 = useTransform(progress2, [0, 1], [.8, 1]);
     const scale3 = useTransform(progress3, [0, 1], [.8, 1]);
 
+    // Scroll 
+    const accessRef = useRef(null);
+
+    const scrollToSection = () => {
+        accessRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        });
+    };
   return (
   <>
     <div class="film-grain"></div>
@@ -112,18 +121,15 @@ const LandingPage = () => {
         <div class="absolute inset-0 glow-accent -z-10"></div>
 
         {/* Contact Button */}
-
         <a
             href={mailtoLink}
             className="fixed top-30 right-6 bg-primary w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300"
             >
             💬
         </a>
-        
-
-        
+                
         {/* Spacer */}
-        <div className="w-full flex-1 flex flex-col justify-end pb-24 relative z-10"></div>
+        <div className="w-full flex-1 flex flex-col justify-end pb-32 md:pb-36 relative z-10"></div>
         
         {/* Hero Text */}
         <div className="space-y-4">
@@ -171,8 +177,8 @@ const LandingPage = () => {
                 >
                  Validate Invite
             </div> */}
-            <button  class="w-full border border-white/40 bg-transparent rounded h-14 text-base block hover:bg-white/40 text-white font-medium py-4 rounded transition-color tracking-[0.2em] active:scale-95 shadow-lg shadow-white/20">
-                <a href="#access">Join Early Access</a> 
+            <button onClick={scrollToSection} class="w-full border border-white/40 bg-transparent rounded h-14 text-base block hover:bg-white/40 text-white font-medium py-4 rounded transition-color tracking-[0.2em] active:scale-95 shadow-lg shadow-white/20">
+                Join Early Access
             </button>
         </div>
         <div class="mt-8 w-full aspect-video rounded-xl bg-white/20 border border-primary/20 relative overflow-hidden flex items-center justify-center" data-alt="Cinematic abstract visual representing premium film streaming">
@@ -202,7 +208,7 @@ const LandingPage = () => {
             <motion.div 
                 ref={Ref1}
                 style={{scale: scale1}}
-                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden">
+                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden hover:scale-110 transition-transform duration-300">
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">01</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Movie /></span>
@@ -214,7 +220,7 @@ const LandingPage = () => {
             <motion.div
                 ref={Ref2}
                 style={{scale: scale2}} 
-                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden">
+                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden hover:scale-110 transition-transform duration-300">
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">02</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Public /></span>
@@ -225,7 +231,7 @@ const LandingPage = () => {
             <motion.div 
                 ref={Ref3}
                 style={{scale: scale3}}
-                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden">
+                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden hover:scale-110 transition-transform duration-300">
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">03</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Shield /></span>
@@ -233,27 +239,27 @@ const LandingPage = () => {
                     <p class="text-slate-400 leading-relaxed">Time-limited access. Encrypted streaming. Individual watermark protection.</p>
                 </div>
             </motion.div>
-            <p className='text-center text-white/90 text-4xl pt-16 text-bold italic leading-relaxed'>Noir Cinema is designed to protect theatrical value <span>--not replace it.</span></p>
+            {/* <p className='text-center text-white/90 text-4xl pt-16 text-bold italic leading-relaxed'>Noir Cinema is designed to protect theatrical value <br /><span>-- not replace it.</span></p> */}
         </div>
     </section>
 
     {/* For Producers Section  */}
     <section class="px-6 py-12 flex flex-col items-center">
-        <div class="bg-gradient-to-br from-slate-900 to-background-dark border border-primary/20 rounded-2xl p-8 relative overflow-hidden lg:w-3/4">
+        <div class="bg-gradient-to-br from-slate-900 to-background-dark border border-primary/20 rounded-2xl p-8 relative overflow-hidden lg:w-3/4 hover:scale-110 transition-transform duration-300">
             <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px]"></div>
             <h2 class="text-slate-100 text-2xl font-serif font-bold mb-6">For Filmmakers &amp; Studios</h2>
             <ul class="space-y-4">
                 <li class="flex items-start gap-3">
                     <span class="material-symbols-outlined text-primary mt-1"><CheckCircle /></span>
-                    <p class="text-slate-300">Global distribution without middleman hurdles.</p>
+                    <p class="text-slate-300 mt-1">Global distribution without middleman hurdles.</p>
                 </li>
                 <li class="flex items-start gap-3">
                     <span class="material-symbols-outlined text-primary mt-1"><CheckCircle /></span>
-                    <p class="text-slate-300">Advanced DRM protection and pirate-prevention.</p>
+                    <p class="text-slate-300 mt-1">Advanced DRM protection and pirate-prevention.</p>
                 </li>
                 <li class="flex items-start gap-3">
                     <span class="material-symbols-outlined text-primary mt-1"><CheckCircle /></span>
-                    <p class="text-slate-300">Transparent real-time revenue and viewership data.</p>
+                    <p class="text-slate-300 mt-1">Transparent real-time revenue and viewership data.</p>
                 </li>
             </ul>
         </div>
@@ -287,7 +293,7 @@ const LandingPage = () => {
         </div>
     </section>
     {/* <!-- Early Access Form --> */}
-    <section id='access' class="px-6 py-20 bg-slate-900/30">
+    <section ref={accessRef} class="px-6 py-20 bg-slate-900/30">
         <div class="max-w-md mx-auto">
             <div class="text-center mb-10">
                 <h2 class="text-slate-100 text-3xl font-bold mb-4">Be the First to Know</h2>
