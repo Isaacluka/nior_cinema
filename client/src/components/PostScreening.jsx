@@ -32,7 +32,7 @@ const PostScreening = () => {
     const { name } = useParams();
   return (
     <>
-        <div className='relative border border-red-400 flex w-full flex-col items-center overflow-x-hidden'>        
+        <div className='relative flex w-full flex-col items-center overflow-x-hidden'>        
             <div className="flex items-center w-full bg-transparent justify-between">
                 <div className="text-white/60 flex size-10 shrink-0 items-center justify-center cursor-pointer">
                     <span className="material-symbols-outlined text-2xl"><CloseIcon /></span>
