@@ -4,7 +4,7 @@ import { Stream, Favorite, CheckCircle, PlayArrow, Shield, Message,  } from '@mu
 import { useNavigate } from 'react-router';
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from "framer-motion";
-
+import MoviePoster from '../assets/MoviePoster.png'
 
 const LandingPage = () => {
 
@@ -117,7 +117,15 @@ const LandingPage = () => {
         </div>
     </nav>
     {/* Hero Section */}
-    <section class="relative px-6 py-16 flex flex-col items-center text-center gap-8 overflow-hidden">
+    <section class="relative px-6 py-16 flex flex-col items-center text-center gap-8 z-10 overflow-hidden">
+        {/* Background Graphics
+        <div className="absolute inset-0 z-0">
+            <div className="w-full h-1/3 bg-center bg-cover"
+                style={{ backgroundImage: `url(${MoviePoster})` }}>
+            </div>
+        </div> */}
+
+
         <div class="absolute inset-0 glow-accent -z-10"></div>
 
         {/* Contact Button */}
@@ -132,7 +140,7 @@ const LandingPage = () => {
         <div className="w-full flex-1 flex flex-col justify-end pb-32 md:pb-36 relative z-10"></div>
         
         {/* Hero Text */}
-        <div className="space-y-4">
+        <div className="space-y-4 relative">
             <motion.h1 
             style={{overflow: "hidden"}}
                     initial={{y: 30,opacity:0}}
@@ -169,7 +177,7 @@ const LandingPage = () => {
             </p> */}
 
         </div>
-        <div class="flex flex-col w-full gap-4 max-w-xs">
+        <div class="flex flex-col w-full gap-4 relative max-w-xs">
             <div onClick={handleDemo} class="block w-full bg-primary hover:primary/90 text-white font-medium py-4 rounded transition-color tracking-[0.2em] active:scale-95 shadow-lg shadow-primary/20'">
                 Try the Demo Experience
             </div>

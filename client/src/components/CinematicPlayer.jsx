@@ -47,7 +47,16 @@ const CinematicPlayer = () => {
       </Link> */}
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="w-full max-w-7xl aspect-video shadow-2xl">
-          <YouTube 
+
+          <video controls 
+            className="w-full rounded-lg" 
+            onLoadedMetadata={handleReady}
+            onPlay={handleStateChange}
+            onPause={handleStateChange}
+            onEnded ={handleEnd}>
+            <source src="https://res.cloudinary.com/dbcxedtzc/video/upload/v1773748550/Noir_Cinema_wx24qu.mp4" type="video/mp4" />
+          </video>
+          {/* <YouTube 
             className="w-full h-full rounded-lg"
             videoId = "Q8q3EVcaFqY"
             onReady={handleReady}
@@ -61,7 +70,7 @@ const CinematicPlayer = () => {
                 rel:0,
               },
             }}
-          />
+          /> */}
 
 
           {/* <iframe
