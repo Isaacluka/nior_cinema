@@ -63,6 +63,7 @@ const LandingPage = () => {
     const Ref1 = useRef(null);
     const Ref2= useRef(null);
     const Ref3 = useRef(null);
+    const Ref4 = useRef(null);
 
     // Track scroll of each card
     const { scrollYProgress: progress1 } = useScroll({
@@ -85,11 +86,18 @@ const LandingPage = () => {
         // "start end" = when top of div hits bottom of viewport
         // "end start" = when bottom of div hits top of viewport
     });
+    const { scrollYProgress: progress4 } = useScroll({
+        target: Ref4,
+        offset: ["start end", "end end"], 
+        // "start end" = when top of div hits bottom of viewport
+        // "end start" = when bottom of div hits top of viewport
+    });
 
     // Map scroll to scale (1 → 1.2)
     const scale1 = useTransform(progress1, [0, 1], [.5, 1]);
     const scale2 = useTransform(progress2, [0, 1], [.8, 1]);
     const scale3 = useTransform(progress3, [0, 1], [.8, 1]);
+    const scale4 = useTransform(progress4, [0, 1], [.8, 1]);
 
     // Scroll 
     const accessRef = useRef(null);
@@ -146,9 +154,9 @@ const LandingPage = () => {
                     initial={{y: 30,opacity:0}}
                     animate={{y: 0, opacity:1}}
                     transition={{ duration: 2, ease: "easeInOut"}}
-                    class="text-white text-4xl md:text-7xl font-extrabold font-special tracking-tight">
-                <span>The Global Digital Cinema for</span><br />
-                <motion.span 
+                    class="text-white text-4xl md:text-7xl font-extrabold uppercase font-special tracking-tight">
+                <span>Reach your <br/><span className='text-primary italic'>global</span><br /> audience beyond the cinema.</span><br />
+                {/* <motion.span 
                     style={{overflow: "hidden", whiteSpace: "nowrap", display: "inline-block"}}
                     initial={{ clipPath: "inset(0 100% 0 0)", filter: "blur(3px)" }}
                     animate={{ clipPath: "inset(0 0% 0 0)", filter: "blur(0px)" }}
@@ -160,14 +168,14 @@ const LandingPage = () => {
                         >
                         |
                     </motion.span>
-                </motion.span>
+                </motion.span> */}
             </motion.h1>
 
             {/* Spacer */}
             {/* <div className="w-full flex-1 flex flex-col justify-end pb-12 relative z-10"></div> */}
 
             <p class="text-white/90 text-base lg:text-xl font-normal leading-relaxed max-w-md mx-auto">
-                Experience premium African storytelling redefined through cinematic excellence and global accessibility.
+                After your theatrical release, bring your film to diaspora audiences worldwide through secure online premieres.
             </p>
             {/* <p class="text-white/90 text-base font-normal leading-relaxed max-w-md mx-auto">
                 Watch theatrical releases anywhere in the world — while they’re still in cinemas.
@@ -189,19 +197,45 @@ const LandingPage = () => {
                 Join Early Access
             </button>
         </div>
-        <div class="mt-8 w-full aspect-video rounded-xl bg-white/20 border border-primary/20 relative overflow-hidden flex items-center justify-center" data-alt="Cinematic abstract visual representing premium film streaming">
+        {/* <div class="mt-8 w-full aspect-video rounded-xl bg-white/20 border border-primary/20 relative overflow-hidden flex items-center justify-center" data-alt="Cinematic abstract visual representing premium film streaming">
             <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
             <span class="material-symbols-outlined text-primary/40 text-6xl"><PlayCircle /></span>
-        </div>
+        </div> */}
+    </section>
+
+    <section className='flex flex-col items-center'>
+        <div className="w-24 h-[1px] text-center bg-primary/60 m-6"></div>
+    </section>
+
+    {/* Context Strip */}
+    <section className='flex justify-center'>
+        <div className="w-9/10 rounded-lg p-8 m-0 text-primary text-center flex justify-center items-center font-special text-xl lg:text-2xl tracking-[0.2em]">Built for filmmakers who want to extend their reach beyond local cinema releases.</div>
+    </section>
+
+    <section className='flex flex-col items-center'>
+        <div className="w-24 h-[1px] text-center bg-primary/60 m-6"></div>
     </section>
     {/* <!-- Problem Section --> */}
     <section class="px-6 py-20 bg-primary/5">
         <div class="max-w-md mx-auto text-center space-y-6">
-        <h2 class="text-slate-100 text-4xl  font-bold leading-tight">Nollywood Has a Distribution Gap.</h2>
-        <p class="text-slate-400 text-lg leading-relaxed">
-            Despite being one of the largest film industries globally, reaching international audiences remains a challenge. We are building the bridge to bring high-quality Nollywood productions to every screen worldwide. <br/><br/>
-            <span class="text-slate-100 font-bold italic">It's time for our stories to be seen as they were meant to be.</span>
+        {/* <h2 class="text-slate-100 text-4xl  font-bold leading-tight">Nollywood Has a Distribution Gap.</h2> */}
+        <h2 class="text-slate-100 text-4xl font-special font-bold leading-tight">Your audience is bigger than your cinema reach.</h2>
+        <p class="text-slate-400 text-lg text-left leading-relaxed">
+            {/* Despite being one of the largest film industries globally, reaching international audiences remains a challenge. We are building the bridge to bring high-quality Nollywood productions to every screen worldwide. <br/><br/> */}
+            {/* <span class="text-slate-100 font-bold italic">We help filmmakers reach global audiences—and get paid directly</span> */}
+           Thousands of viewers across the world want to watch your film—but never get access.
+        <p />
+        <br />
+        <p>Limited international distribution means:</p>
+            <ul className='list-disc pl-5'>
+                <li>Missed revenue</li>
+                <li>Piracy</li>
+                <li>Lost audience connection</li>
+            </ul>
+            <br />
         </p>
+           <span class="text-slate-100 font-bold text-center italic">Noir Cinema helps you reach them.</span> 
+        
         </div>
     </section>
 
@@ -220,8 +254,8 @@ const LandingPage = () => {
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">01</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Movie /></span>
-                    <h4 class="text-slate-100 text-xl font-bold mb-2 ">Release</h4>
-                    <p class="text-slate-400 leading-relaxed">Films premiere in cinemas as usual.</p>
+                    <h4 class="text-slate-100 text-xl font-bold mb-2 ">Release in Cinema</h4>
+                    <p class="text-slate-400 leading-relaxed">Your film launches locally as usual.</p>
                 </div>
             </motion.div>
 
@@ -232,8 +266,9 @@ const LandingPage = () => {
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">02</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Public /></span>
-                    <h4 class="text-slate-100 text-xl font-bold mb-2">Extend</h4>
-                    <p class="text-slate-400 leading-relaxed">Audiences purchase secure digital tickets where cinemas are unavailable.</p>
+                    <h4 class="text-slate-100 text-xl font-bold mb-2">Open Global access</h4>
+
+                    <p class="text-slate-400 leading-relaxed">Offer digital tickets to audiences abroad.</p>
                 </div>
             </motion.div>
             <motion.div 
@@ -243,10 +278,21 @@ const LandingPage = () => {
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">03</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Shield /></span>
+                    <h4 class="text-slate-100 text-xl font-bold mb-2 ">Monetize worldwide</h4>
+                    <p class="text-slate-400 leading-relaxed">Fan watch securely from anywhere <span className='text-primary italic'>and you earn directly.</span></p>
+                </div>
+            </motion.div>
+            {/* <motion.div 
+                ref={Ref4}
+                style={{scale: scale4}}
+                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden hover:scale-110 transition-transform duration-300">
+                <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">04</span>
+                <div class="relative z-10">
+                    <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Shield /></span>
                     <h4 class="text-slate-100 text-xl font-bold mb-2 ">Watch</h4>
                     <p class="text-slate-400 leading-relaxed">Time-limited access. Encrypted streaming. Individual watermark protection.</p>
                 </div>
-            </motion.div>
+            </motion.div> */}
             {/* <p className='text-center text-white/90 text-4xl pt-16 text-bold italic leading-relaxed'>Noir Cinema is designed to protect theatrical value <br /><span>-- not replace it.</span></p> */}
         </div>
     </section>
