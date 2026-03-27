@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from "framer-motion";
 import MoviePoster from '../assets/MoviePoster.png'
-import HeroSection from './herosection';
+import HeroSection from './HeroSection';
 
 
 const LandingPage = () => {
