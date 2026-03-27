@@ -7,7 +7,7 @@
   --font-family: "Newsreader", "serif";
   --font-special: "Playfair", "serif";
   --color-primary: #d41132;
-  --color-bg-dark: #0a0808;
+  --color-bg-dark: black;
 }
 /* * {
   margin: 0;
@@ -39,7 +39,7 @@ body {
 @tailwind utilities;
 
 @layer components {
-  .film-grain {
+  /* .film-grain {
     border: .1rem solid red;
     position: fixed;
     top: 0;
@@ -50,7 +50,7 @@ body {
     z-index: 50;
     opacity: 0.04;
     background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuC9e0Fm_t6WjsQPAMY8C0MV_neFrFlE1KxQwkSus6gAlimT4jjhH8Ae_6wpgNfy97z-KDXeD9XT9NGox2gyxNTG1ijglSF2oDbV58v2iIWQLn5SiqY0sKF2xp0IUD4a0dqorOF9R4DorPoVv1O6EJB3T9ThqfuSTvycJTHhZugGEfp6molU53wPcDJSGK311qh-Nz2zqzhueYVAr7LDzqvtFFRS23ZUSzOtV6c6nYaVbG7LrotQbmcopC4EJmJsd44_CJ97SeC0fS8)
-  }
+  } */
   .material-symbols-outlined {
     font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   }
@@ -77,7 +77,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.25);
+  background: var(--color-primary);
   border-radius: 100px;
 }
 

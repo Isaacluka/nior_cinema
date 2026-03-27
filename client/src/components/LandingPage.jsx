@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router';
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from "framer-motion";
 import MoviePoster from '../assets/MoviePoster.png'
+import HeroSection from './herosection';
+
 
 const LandingPage = () => {
 
@@ -94,7 +96,7 @@ const LandingPage = () => {
     });
 
     // Map scroll to scale (1 → 1.2)
-    const scale1 = useTransform(progress1, [0, 1], [.5, 1]);
+    const scale1 = useTransform(progress1, [0, 1], [1.2, 1]);
     const scale2 = useTransform(progress2, [0, 1], [.8, 1]);
     const scale3 = useTransform(progress3, [0, 1], [.8, 1]);
     const scale4 = useTransform(progress4, [0, 1], [.8, 1]);
@@ -124,8 +126,11 @@ const LandingPage = () => {
             </button> */}
         </div>
     </nav>
+
+    <HeroSection />
+
     {/* Hero Section */}
-    <section class="relative px-6 py-16 flex flex-col items-center text-center gap-8 z-10 overflow-hidden">
+    {/* <section class="relative px-6 py-16 flex flex-col items-center text-center gap-8 z-10  border overflow-hidden"> */}
         {/* Background Graphics
         <div className="absolute inset-0 z-0">
             <div className="w-full h-1/3 bg-center bg-cover"
@@ -134,28 +139,28 @@ const LandingPage = () => {
         </div> */}
 
 
-        <div class="absolute inset-0 glow-accent -z-10"></div>
+        {/* <div class="absolute inset-0 glow-accent -z-10"></div> */}
 
         {/* Contact Button */}
-        <a
+        {/* <a
             href={mailtoLink}
             className="fixed top-30 right-6 bg-primary w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300"
             >
             💬
         </a>
-                
+                 */}
         {/* Spacer */}
-        <div className="w-full flex-1 flex flex-col justify-end pb-32 md:pb-36 relative z-10"></div>
+        {/* <div className="w-full flex-1 flex flex-col justify-end pb-32 md:pb-36 relative z-10"></div> */}
         
         {/* Hero Text */}
-        <div className="space-y-4 relative">
+        {/* <div className="space-y-4 relative">
             <motion.h1 
             style={{overflow: "hidden"}}
                     initial={{y: 30,opacity:0}}
                     animate={{y: 0, opacity:1}}
                     transition={{ duration: 2, ease: "easeInOut"}}
                     class="text-white text-4xl md:text-7xl font-extrabold uppercase font-special tracking-tight">
-                <span>Reach your <br/><span className='text-primary italic'>global</span><br /> audience beyond the cinema.</span><br />
+                <span>Reach your <br/><span className='text-primary italic'>global</span><br /> audience.</span><br /> */}
                 {/* <motion.span 
                     style={{overflow: "hidden", whiteSpace: "nowrap", display: "inline-block"}}
                     initial={{ clipPath: "inset(0 100% 0 0)", filter: "blur(3px)" }}
@@ -169,14 +174,14 @@ const LandingPage = () => {
                         |
                     </motion.span>
                 </motion.span> */}
-            </motion.h1>
+            {/* </motion.h1> */}
 
             {/* Spacer */}
             {/* <div className="w-full flex-1 flex flex-col justify-end pb-12 relative z-10"></div> */}
 
-            <p class="text-white/90 text-base lg:text-xl font-normal leading-relaxed max-w-md mx-auto">
+            {/* <p class="text-white/90 text-base lg:text-xl font-normal leading-relaxed max-w-md mx-auto">
                 After your theatrical release, bring your film to diaspora audiences worldwide through secure online premieres.
-            </p>
+            </p> */}
             {/* <p class="text-white/90 text-base font-normal leading-relaxed max-w-md mx-auto">
                 Watch theatrical releases anywhere in the world — while they’re still in cinemas.
             </p> */}
@@ -184,36 +189,36 @@ const LandingPage = () => {
                 A secure, time-limited digital cinema experience built for producers and global audiences.
             </p> */}
 
-        </div>
+        {/* </div>
         <div class="flex flex-col w-full gap-4 relative max-w-xs">
             <div onClick={handleDemo} class="block w-full bg-primary hover:primary/90 text-white font-medium py-4 rounded transition-color tracking-[0.2em] active:scale-95 shadow-lg shadow-primary/20'">
                 Try the Demo Experience
-            </div>
+            </div> */}
             {/* <div className='block w-full bg-primary hover:primary/90 text-white font-medium py-4 rounded transition-color uppercase tracking-[0.2em] text-xs shadow-lg shadow-primary/10 truncate uppercase w-full cursor-pointer flex items-center justify-center rounded h-14 bg-primary text-white text-sm font-bold tracking-[0.2em] transition-all hover:bg-primary/90 active:scale-95 shadow-lg shadow-primary/20'
                 >
                  Validate Invite
             </div> */}
-            <button onClick={scrollToSection} class="w-full border border-white/40 bg-transparent rounded h-14 text-base block hover:bg-white/40 text-white font-medium py-4 rounded transition-color tracking-[0.2em] active:scale-95 shadow-lg shadow-white/20">
+            {/* <button onClick={scrollToSection} class="w-full border border-white/40 bg-transparent rounded h-14 text-base block hover:bg-white/40 text-white font-medium py-4 rounded transition-color tracking-[0.2em] active:scale-95 shadow-lg shadow-white/20">
                 Join Early Access
             </button>
-        </div>
+        </div> */}
         {/* <div class="mt-8 w-full aspect-video rounded-xl bg-white/20 border border-primary/20 relative overflow-hidden flex items-center justify-center" data-alt="Cinematic abstract visual representing premium film streaming">
             <div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent"></div>
             <span class="material-symbols-outlined text-primary/40 text-6xl"><PlayCircle /></span>
         </div> */}
-    </section>
+    {/* </section> */}
 
-    <section className='flex flex-col items-center'>
+    <section className='flex flex-col -mt-6 items-center'>
         <div className="w-24 h-[1px] text-center bg-primary/60 m-6"></div>
     </section>
 
     {/* Context Strip */}
     <section className='flex justify-center'>
-        <div className="w-9/10 rounded-lg p-8 m-0 text-primary text-center flex justify-center items-center font-special text-xl lg:text-2xl tracking-[0.2em]">Built for filmmakers who want to extend their reach beyond local cinema releases.</div>
+        <div className="w-9/10 rounded-lg p-8 m-0 text-primary text-center flex justify-center items-center font-special text-xl lg:text-2xl tracking-[0.2em] border bg-white-400">Built for filmmakers who want to extend their reach beyond local cinema releases.</div>
     </section>
 
     <section className='flex flex-col items-center'>
-        <div className="w-24 h-[1px] text-center bg-primary/60 m-6"></div>
+        <div className="w-24 h-[1px] text-center bg-primary/60 m-6 mb-0"></div>
     </section>
     {/* <!-- Problem Section --> */}
     <section class="px-6 py-20 bg-primary/5">
@@ -245,12 +250,12 @@ const LandingPage = () => {
             <h3 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">The Process</h3>
             <h2 class="text-slate-100 text-3xl">How It Works</h2>
         </div>
-        <div class="flex flex-col justify-center gap-8 lg:w-3/4">
+        <div class="flex flex-col md:flex-row justify-center gap-8 lg:w-3/4">
 
-            <motion.div 
+            {/* <motion.div 
                 ref={Ref1}
                 style={{scale: scale1}}
-                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden hover:scale-110 transition-transform duration-300">
+                class="relative p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden hover:scale-110 transition-transform duration-300">
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">01</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Movie /></span>
@@ -274,25 +279,102 @@ const LandingPage = () => {
             <motion.div 
                 ref={Ref3}
                 style={{scale: scale3}}
-                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden hover:scale-110 transition-transform duration-300">
+                class="relative p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden hover:scale-110 transition-transform duration-300">
+                    
+                <div className="absolute inset-0 rounded-2xl pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(255,120,0,0.15),transparent_40%)]" />
                 <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">03</span>
                 <div class="relative z-10">
                     <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Shield /></span>
                     <h4 class="text-slate-100 text-xl font-bold mb-2 ">Monetize worldwide</h4>
-                    <p class="text-slate-400 leading-relaxed">Fan watch securely from anywhere <span className='text-primary italic'>and you earn directly.</span></p>
-                </div>
-            </motion.div>
-            {/* <motion.div 
-                ref={Ref4}
-                style={{scale: scale4}}
-                class="p-8 rounded-xl bg-slate-900/50 border border-slate-800 relative group overflow-hidden hover:scale-110 transition-transform duration-300">
-                <span class="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">04</span>
-                <div class="relative z-10">
-                    <span class="material-symbols-outlined text-primary mb-4 text-3xl"><Shield /></span>
-                    <h4 class="text-slate-100 text-xl font-bold mb-2 ">Watch</h4>
-                    <p class="text-slate-400 leading-relaxed">Time-limited access. Encrypted streaming. Individual watermark protection.</p>
+                    // <p class="text-slate-400 leading-relaxed">Fan watch securely from anywhere <span className='text-primary italic'>and you earn directly.</span></p>
                 </div>
             </motion.div> */}
+            <motion.div
+                ref={Ref1}
+                style={{ scale: scale1 }}
+                className="relative p-8 flex-1 rounded-2xl overflow-hidden group bg-gradient-to-b from-[#0a0a0a] to-[#120603] shadow-[0_0_30px_rgba(212,17,50,0.05)]  hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500">
+
+                {/*Top glow overlay */}
+                <div className="absolute inset-0 rounded-2xl pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(212,17,50,0.15),transparent_10%)]" />
+
+                {/* Big background number */}
+                <span className="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">
+                    01
+                </span>
+
+                {/* Content */}
+                <div className="relative z-10">
+                    <div className="text-primary mb-4 text-3xl">
+                    <Movie />
+                    </div>
+
+                    <h4 className="text-white text-xl font-bold mb-2">
+                    Release in Cinema
+                    </h4>
+
+                    <p className="text-gray-400 leading-relaxed">
+                    Your film launches locally as usual.
+                    </p>
+                </div>
+            </motion.div>
+            <motion.div
+                ref={Ref1}
+                style={{ scale: scale1 }}
+                className="relative p-8 flex-1 rounded-2xl overflow-hidden group bg-gradient-to-b from-[#0a0a0a] to-[#120603]  shadow-[0_0_30px_rgba(212,17,50,0.05)]  hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500">
+
+                {/*Top glow overlay */}
+                <div className="absolute inset-0 rounded-2xl pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(212,17,50,0.15),transparent_20%)]" />
+
+                {/* Big background number */}
+                <span className="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">
+                    02
+                </span>
+
+                {/* Content */}
+                <div className="relative z-10">
+                    <div className="text-primary mb-4 text-3xl">
+                    <Public />
+                    </div>
+
+                    <h4 className="text-white text-xl font-bold mb-2">
+                    Open Global access
+                    </h4>
+
+                    <p className="text-gray-400 leading-relaxed">
+                    Offer digital tickets to audiences abroad.
+                    </p>
+                </div>
+            </motion.div>
+            <motion.div
+                ref={Ref1}
+                style={{ scale: scale1 }}
+                className="relative p-8 flex-1 rounded-2xl overflow-hidden group bg-gradient-to-b from-[#0a0a0a] to-[#120603] shadow-[0_0_30px_rgba(212,17,50,0.05)]  hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500">
+
+                {/*Top glow overlay */}
+                <div className="absolute inset-0 rounded-2xl pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(212,17,50,0.15),transparent_10%)]" />
+
+                {/* Big background number */}
+                <span className="text-primary/10 text-8xl font-black absolute -right-4 -top-4 italic font-serif">
+                    03
+                </span>
+
+                {/* Content */}
+                <div className="relative z-10">
+                    <div className="text-primary mb-4 text-3xl">
+                    <Shield />
+                    </div>
+
+                    <h4 className="text-white text-xl font-bold mb-2">
+                        Monetize Worldwide
+                    </h4>
+
+                    <p className="text-gray-400 leading-relaxed">
+                        Fans watch securely from anywhere <span className='text-primary italic'>and you earn directly.</span>
+
+                    </p>
+                </div>
+            </motion.div>
+        
             {/* <p className='text-center text-white/90 text-4xl pt-16 text-bold italic leading-relaxed'>Noir Cinema is designed to protect theatrical value <br /><span>-- not replace it.</span></p> */}
         </div>
     </section>
@@ -305,10 +387,15 @@ const LandingPage = () => {
 
     {/* For Producers Section  */}
     <section class="px-6 py-12 flex flex-col items-center">
-        <div class="bg-gradient-to-br from-slate-900 to-background-dark border border-primary/20 rounded-2xl p-8 relative overflow-hidden lg:w-3/4 hover:scale-110 transition-transform duration-300">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px]"></div>
-            <h2 class="text-slate-100 text-2xl font-serif font-bold mb-6">For Filmmakers &amp; Studios</h2>
-            <ul class="space-y-4">
+        <div class="text-center">
+            <h3 class="text-primary text-sm font-bold tracking-widest uppercase mb-2">Product Features</h3>
+            <h2 class="text-slate-100 text-3xl">Why You Need Noir Cinema</h2>
+        </div>
+        
+        <div class="bg-gradient-to-br mt-8 from-slate-900 to-background-dark border border-primary/20 rounded-2xl p-8 relative overflow-hidden lg:w-3/4 hover:scale-110 transition-transform duration-300">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] "></div>
+            {/* <h2 class="text-slate-100 text-2xl font-serif font-bold mb-6">For Filmmakers &amp; Studios</h2> */}
+            <ul class="flex flex-col md:flex-row space-y-4">
                 <li class="flex items-start gap-3">
                     <span class="material-symbols-outlined text-primary mt-1"><CheckCircle /></span>
                     <p class="text-slate-300 mt-1">Global distribution without middleman hurdles.</p>
@@ -336,7 +423,7 @@ const LandingPage = () => {
     </section>
 
     {/* Demo Section */}
-    <section class="px-6 py-12">
+    {/* <section class="px-6 py-12">
         <div class="relative rounded-2xl overflow-hidden aspect-video group">
             <div class="absolute inset-0 bg-slate-900" data-alt="A dark cinematic preview of a high-end film set">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent to-background-dark/90"></div>
@@ -351,7 +438,7 @@ const LandingPage = () => {
                 </div>
             </div>
         </div>
-    </section>
+    </section> */}
     {/* <!-- Early Access Form --> */}
     <section ref={accessRef} class="px-6 py-20 bg-slate-900/30">
         <div class="max-w-md mx-auto">

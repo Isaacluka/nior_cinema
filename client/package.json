@@ -21,6 +21,7 @@
     "framer-motion": "^12.35.2",
     "hls.js": "^1.6.15",
     "jsonwebtoken": "^9.0.3",
+    "motion": "^12.38.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router": "^7.13.0",
