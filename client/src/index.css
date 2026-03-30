@@ -6,9 +6,10 @@
   --font-mono: "Jetbrains Mono", "monospace";
   --font-family: "Newsreader", "serif";
   --font-special: "Playfair", "serif";
-  --color-primary: #d41132;
+  --color-primary: #d41132 ;
   --color-bg-dark: black;
 }
+#d41132
 /* * {
   margin: 0;
   padding: 0;

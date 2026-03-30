@@ -415,9 +415,9 @@ const LandingPage = () => {
     {/* For Audiences Section */}
     <section class="px-6 py-20 text-center">
         <div class="max-w-md mx-auto space-y-6">
-            <h2 class="text-slate-100 text-3xl italic">Your Front Row Seat to Africa’s Heartbeat.</h2>
+            <h2 class="text-slate-100 text-3xl italic">Take Your Stories Global <br /><span className='text-primary italic'> On Your Terms </span></h2>
             <p class="text-slate-400 text-lg leading-relaxed">
-                Whether you're in Lagos or London, experience the culture, the drama, and the rhythm of Nollywood exactly as the director intended. No compromises, just pure cinema.
+                Reach audiences from Lagos to London while preserving the integrity, emotion, and cinematic intent of your film. <br /><span className='italic text-white'>No dilution.</span> <br /><span className='italic text-white'>No compromise.</span> <br /><span className='italic text-white text-2xl'>Just pure cinema!</span>
             </p>
         </div>
     </section>
@@ -448,14 +448,14 @@ const LandingPage = () => {
             </div>
             <div class="bg-background-dark p-6 rounded-2xl border border-slate-800 space-y-6 shadow-2xl">
                 
-                <div className="toggle flex p-1 bg-slate-900 rounded-lg">
+                {/* <div className="toggle flex p-1 bg-slate-900 rounded-lg">
                     <button 
                         className={`flex-1 py-2 text-sm font-bold text-slate-400 ${role === "user" ? "active text-white bg-primary rounded shadow-sm" : ""}`}
                         onClick={() => setRole("user")}>I’m a Film Lover</button>
                     <button 
                         className={`flex-1 py-2 text-sm font-bold text-slate-400 ${role === "producer" ? "active text-white bg-primary rounded shadow-sm" : ""}`}
                          onClick={() => setRole("producer")}>I’m a Producer</button>
-                </div>
+                </div> */}
                 <div class="space-y-4">
                     <form className="space-y-4"onSubmit={handleSubmit}>
                     <input 
